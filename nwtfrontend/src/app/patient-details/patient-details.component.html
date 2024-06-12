@@ -1,0 +1,36 @@
+<div class="container mx-auto mt-4">
+    <h1 class="text-2xl font-bold mb-4">Patient Details</h1>
+    <div *ngIf="patient">
+      <h2 class="text-xl font-bold">Basic Information</h2>
+      <p>Name: {{ patient.firstName }} {{ patient.lastName }}</p>
+      <p>Allergies: {{ patient.allergies }}</p>
+      <p>Medications: {{ patient.medications }}</p>
+      <p>Blood Type: {{ patient.bloodType }}</p>
+      <p>Family History: {{ patient.familyHistory }}</p>
+      <p>Height: {{ patient.height }} cm</p>
+      <p>Weight: {{ patient.weight }} kg</p>
+  
+      <h2 class="text-xl font-bold mt-4">Medical Reports</h2>
+      <ul class="list-disc pl-5">
+        <li *ngFor="let report of medicalReports">
+          <p>Date: {{ report.date }}</p>
+          <p>Diagnosis: {{ report.diagnosis }}</p>
+          <p>Treatment Plan: {{ report.treatmentPlan }}</p>
+          <p>Test Results: {{ report.testResults }}</p>
+          <p>Additional Notes: {{ report.additionalNotes }}</p>
+        </li>
+      </ul>
+  
+      <h2 class="text-xl font-bold mt-4">Doctor Referrals</h2>
+      <ul class="list-disc pl-5">
+        <li *ngFor="let referral of doctorReferrals">
+          <p>Date: {{ referral.date }}</p>
+          <p>Reason: {{ referral.reason }}</p>
+          <p>Priority: {{ referral.priority }}</p>
+          <p>Referring Doctor: {{ referral.referringDoctorName }}</p>
+          <p>Referred Doctor: {{ referral.referredDoctorName }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
