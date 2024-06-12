@@ -12,3 +12,13 @@
     align-items: center;
     justify-content: center;
 }
+
+body,
+.content {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding-top: 90px;
+}

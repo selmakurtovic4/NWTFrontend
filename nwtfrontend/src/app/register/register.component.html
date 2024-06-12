@@ -1,4 +1,4 @@
-<div class="background font-sans min-h-screen flex items-center justify-center bg-gray-100 py-6">
+<div class="content background font-sans min-h-screen flex items-center justify-center bg-gray-100 py-6">
     <button (click)="navigate('/')"
         class="absolute top-4 left-4 text-blue-600 underline hover:text-blue-800 transition flex items-center">
         <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -35,6 +35,10 @@
                 </div>
                 <div class="mb-4">
                     <input type="password" name="password" ngModel placeholder="Lozinka"
+                        class="block w-full border border-gray-300 rounded-xl px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <input type="password" name="repeatedPassword" ngModel placeholder="Ponovljena lozinka"
                         class="block w-full border border-gray-300 rounded-xl px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                 </div>
                 <div class="mb-4">
