@@ -1,0 +1,42 @@
+/* Dodajte ove stilove u vaš stilski fajl (npr. styles.css) */
+
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Promenite širinu prema potrebama */
+    max-width: 90%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .popup-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .popup-buttons {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .popup-buttons button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .popup-buttons button:hover {
+    background-color: #0056b3;
+  }
+  

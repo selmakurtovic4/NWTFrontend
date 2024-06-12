@@ -1,7 +1,7 @@
 <nav class="flex items-center justify-between bg-white px-5 py-2 fixed top-0 w-full z-50 shadow-md">
     <div class="flex items-center">
         <img width="90" height="50" src="assets/images/company-logo.png" alt="Company Logo Image" />
-        <div class="mx-5 h-10 border-l border-gray-300"></div> 
+        <div class="mx-5 h-10 border-l border-gray-300"></div>
         <ul class="flex gap-6 items-center">
             <li>
                 <a href="#home" class="nav-link">Početna</a>
@@ -15,16 +15,17 @@
             <li>
                 <a href="#contact-us" class="nav-link">Kontakt</a>
             </li>
+            <li>
+                <a (click)="navigate('/schedule')" class="nav-link cursor-pointer">Raspored</a>
+            </li>
+            <li>
+                <a (click)="navigate('/staff-review')" class="nav-link cursor-pointer">Pregled osoblja</a>
+            </li>
         </ul>
     </div>
     <div class="flex gap-3 items-center ml-auto">
         <button (click)="navigate('/login')" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-colors">Prijava</button>
         <button (click)="navigate('/register')" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-colors">Registracija</button>
-        <div class="sm:hidden cursor-pointer" id="mobile-toggle">
-        </div>
+        <div class="sm:hidden cursor-pointer" id="mobile-toggle"></div>
     </div>
 </nav>
-
-
-
-

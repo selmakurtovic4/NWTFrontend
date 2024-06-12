@@ -1,10 +1,4 @@
 <div class="font-sans min-h-screen flex items-center justify-center bg-gray-100 py-6">
-    <button (click)="navigate('/')" class="absolute top-4 left-4 text-blue-600 underline hover:text-blue-800 transition flex items-center"> 
-        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-        </svg>
-        Nazad na početnu
-    </button>
     <div class="relative max-w-md w-full">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 shadow-lg transform -rotate-6 rounded-3xl"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 shadow-lg transform rotate-6 rounded-3xl"></div>
@@ -12,6 +6,7 @@
             <h2 class="text-center text-2xl font-semibold text-gray-700 mb-4">Registracija</h2>
             <form #addForm="ngForm" (ngSubmit)="registerUser(addForm)">
                 <div class="mb-4">
+                    <input type="text" name="firstname" ngModel placeholder="Ime" class="block w-full border border-gray-300 rounded-xl px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                 </div>
                 <div class="mb-4">
                     <input type="text" name="lastname" ngModel placeholder="Prezime" class="block w-full border border-gray-300 rounded-xl px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">

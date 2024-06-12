@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppointmentResponse, UserResponse } from './appointment';
+import { MatDialog } from '@angular/material/dialog';
+import { AppointmentPopupComponent } from '../appointment-popup/appointment-popup.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ import { AppointmentResponse, UserResponse } from './appointment';
 
 export class AppointmentService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dialog: MatDialog) { }
 
   getUpcomingAppointments(patientId: number, token: string): Observable<AppointmentResponse[]> {
     const headers = new HttpHeaders({
@@ -40,6 +42,11 @@ export class AppointmentService {
       'Authorization': `Bearer ${token}`
     });
     return this.http.get<UserResponse[]>('http://localhost:8000/auth/user/doctors', { headers });
+  }
+
+
+  openPopup() {
+    this.dialog.open(AppointmentPopupComponent);
   }
     
 }

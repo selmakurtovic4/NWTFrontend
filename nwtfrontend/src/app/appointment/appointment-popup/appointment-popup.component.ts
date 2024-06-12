@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule, formatDate } from '@angular/common';
-import { NavbarComponent } from '../../navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppointmentResponse, UserResponse } from '../shared/appointment';
 import { AppointmentService } from '../shared/appointment.service';
-import { MatDialog } from '@angular/material/dialog';
-import { AppointmentPopupComponent } from '../appointment-popup/appointment-popup.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-appointment-patient',
+  selector: 'app-appointment-popup',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FormsModule],
-  templateUrl: './appointment-patient.component.html',
-  styleUrl: './appointment-patient.component.css'
+  imports: [MatFormFieldModule, FormsModule, CommonModule],
+  templateUrl: './appointment-popup.component.html',
+  styleUrl: './appointment-popup.component.css'
 })
+export class AppointmentPopupComponent {
+  
+  constructor(private appointmentService: AppointmentService, private popupService: AppointmentService, private dialogRef: MatDialogRef<AppointmentPopupComponent>) {}
 
-export class AppointmentPatientComponent implements OnInit {
+
   loading: boolean = true;
   hasSession: boolean = false;
   upcomingAppointments: AppointmentResponse[] = [];
@@ -30,7 +31,6 @@ export class AppointmentPatientComponent implements OnInit {
   isPopupOpen: boolean = false;
   modalOpen: boolean = false;
 
-  constructor(private appointmentService: AppointmentService, private popupService: AppointmentService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.checkSessionAndFetchAppointments();
@@ -129,21 +129,7 @@ export class AppointmentPatientComponent implements OnInit {
     }
   }
 
-  uopenPopup() {
-    this.dialog.open(AppointmentPopupComponent, {
-      width: '400px', 
-      autoFocus: false,
-    });
+  closeDialog() {
+    this.dialogRef.close();
   }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AppointmentPopupComponent, {
-      width: '250px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
 }
