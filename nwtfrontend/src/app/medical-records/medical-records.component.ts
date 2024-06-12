@@ -17,18 +17,17 @@ interface MedicalRecord {
   styleUrls: ['./medical-records.component.css']
 })
 export class MedicalRecordsComponent {
-  records: MedicalRecord[] = [
-    { id: 1, patientName: 'John Doe', doctor: 'Dr. Smith', date: new Date('2023-05-01'), details: 'Regular check-up' },
-    { id: 2, patientName: 'Jane Roe', doctor: 'Dr. Jones', date: new Date('2023-06-10'), details: 'Follow-up visit' },
-    // Add more sample records as needed
-  ];
-  selectedRecord: MedicalRecord | null = null;
+  expandedPatientId: number | null = null;
 
-  viewDetails(record: MedicalRecord): void {
-    this.selectedRecord = record;
+  togglePatient(patientId: number): void {
+    if (this.isPatientExpanded(patientId)) {
+      this.expandedPatientId = null;
+    } else {
+      this.expandedPatientId = patientId;
+    }
   }
 
-  closeDetails(): void {
-    this.selectedRecord = null;
+  isPatientExpanded(patientId: number): boolean {
+    return this.expandedPatientId === patientId;
   }
 }

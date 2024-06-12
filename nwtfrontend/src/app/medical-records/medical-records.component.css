@@ -32,5 +32,19 @@ body,
 }
 
 .content {
-  padding-top: 90px;
+  padding-top: 120px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.background {
+  background-image: url('/assets/images/background-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.grid-class {
+  padding-left: 20px;
 }
