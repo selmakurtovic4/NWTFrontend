@@ -1,14 +1,18 @@
 .nav-link {
     text-decoration: none;
     color: #333;
-    padding: 0.75rem 1rem; 
+    padding: 0.75rem 1rem;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
     position: relative;
 }
 
+.clickable-link {
+    cursor: pointer;
+}
+
 .nav-link:hover {
-    color: #007bff; 
-    transform: translateY(-2px); 
+    color: #007bff;
+    transform: translateY(-2px);
 }
 
 .nav-link::after {

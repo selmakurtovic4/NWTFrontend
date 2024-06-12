@@ -1,0 +1,37 @@
+.medical-records-container {
+  padding: 20px;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.records-table th,
+.records-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.records-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.record-details {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+body,
+.content {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding-top: 90px;
+  /* Adjust this value based on your navbar height */
+}
