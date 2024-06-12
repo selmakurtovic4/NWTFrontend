@@ -1,0 +1,25 @@
+<div class="container mx-auto px-4 py-8 max-w-full">
+    <div class="grid grid-cols-1 gap-8">
+      <div *ngFor="let doctor of doctors" class="bg-white rounded-lg shadow-lg p-6 flex items-start space-x-6 w-full">
+        <div class="flex-shrink-0">
+          <img class="h-24 w-24 rounded-full object-cover" src="../assets/images/surgeon-doctor-svgrepo-com.png" alt="{{ doctor.firstname }} {{ doctor.lastname }}">
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold mb-2">{{ doctor.firstname }} {{ doctor.lastname }}</h2>
+          <div *ngIf="doctorReviews[doctor.id] && doctorReviews[doctor.id].length > 0">
+            <div *ngFor="let review of doctorReviews[doctor.id]; let i = index" class="mb-4">
+              <div class="flex items-center mb-1">
+                <span class="text-yellow-500 mr-2" *ngFor="let star of getStars(review.rating)">&#9733;</span>
+                <span class="text-gray-500" *ngFor="let star of getEmptyStars(review.rating)">&#9734;</span>
+              </div>
+              <p class="text-gray-800 italic">"{{ review.comment }}"</p>
+              <hr *ngIf="i < doctorReviews[doctor.id].length - 1" class="my-4">
+            </div>
+            <button *ngIf="doctorReviews[doctor.id].length > 2" class="text-blue-500 hover:text-blue-700 focus:outline-none focus:underline">Učitaj više</button>
+          </div>
+          <div *ngIf="!doctorReviews[doctor.id] || doctorReviews[doctor.id].length === 0" class="text-gray-800">Nema recenzija za ovog doktora.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
