@@ -2,6 +2,7 @@ export interface ReviewResponse {
     rating: number;
     comment: string;
     appointment: AppointmentResponse
+    patientUsername?: string;
 }
 
 export interface AppointmentResponse {
