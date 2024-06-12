@@ -48,3 +48,8 @@ body,
 .grid-class {
   padding-left: 20px;
 }
+
+.item-padding {
+  padding-left: 60px;
+  padding-right: 60px;
+}
