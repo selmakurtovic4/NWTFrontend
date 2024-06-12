@@ -21,11 +21,14 @@
             <li>
                 <a (click)="navigate('/staff-review')" class="nav-link cursor-pointer">Pregled osoblja</a>
             </li>
+            <li>
+                <a (click)="navigate('/medical-records')" class="nav-link clickable-link">Kartoni</a>
+            </li>
         </ul>
     </div>
     <div class="flex gap-3 items-center ml-auto">
         <button (click)="navigate('/login')" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-colors">Prijava</button>
-        <button (click)="navigate('/register')" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-colors">Registracija</button>
-        <div class="sm:hidden cursor-pointer" id="mobile-toggle"></div>
+        <div class="sm:hidden cursor-pointer" id="mobile-toggle">
+        </div>
     </div>
 </nav>

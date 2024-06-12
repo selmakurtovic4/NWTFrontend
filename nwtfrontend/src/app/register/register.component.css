@@ -1,4 +1,27 @@
 .border-red-500 {
     border-color: #f56565;
   }
-  
+  .clickable-link {
+  cursor: pointer;
+}
+
+.background {
+  background-image: url('/assets/images/background-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body,
+.content {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding-top: 90px;
+}

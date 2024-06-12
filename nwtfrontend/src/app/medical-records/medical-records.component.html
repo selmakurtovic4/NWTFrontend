@@ -1,0 +1,33 @@
+<div class="medical-records-container content">
+    <h2>Medical Records</h2>
+    <table class="records-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Patient Name</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{ record.id }}</td>
+          <td>{{ record.patientName }}</td>
+          <td>{{ record.doctor }}</td>
+          <td>{{ record.date | date }}</td>
+          <td><button (click)="viewDetails(record)">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="selectedRecord" class="record-details">
+      <h3>Record Details</h3>
+      <p>ID: {{ selectedRecord.id }}</p>
+      <p>Patient Name: {{ selectedRecord.patientName }}</p>
+      <p>Doctor: {{ selectedRecord.doctor }}</p>
+      <p>Date: {{ selectedRecord.date | date }}</p>
+      <p>Details: {{ selectedRecord.details }}</p>
+      <button (click)="closeDetails()">Close</button>
+    </div>
+  </div>
+  
