@@ -1,0 +1,59 @@
+.medical-records-container {
+  padding: 20px;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.records-table th,
+.records-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.records-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.record-details {
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+body,
+.content {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding-top: 120px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.background {
+  background-image: url('/assets/images/background-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.grid-class {
+  padding-left: 20px;
+}
+
+.item-padding {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.img-class {
+  margin-right: 20px;
+}
