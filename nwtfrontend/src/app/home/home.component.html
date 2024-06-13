@@ -38,7 +38,6 @@
 </section>
 
 
-
 <!-- Sekcija Usluge -->
 <section id="service" class="py-12 bg-gray-100">
     <div class="container mx-auto px-4 max-w-screen-xl">
@@ -46,47 +45,15 @@
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 mb-4 border-b-4 border-green-500 inline-block pb-2">Naše Usluge</h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                <h3 class="text-lg md:text-xl font-semibold mb-4">Stomatološke Usluge</h3>
-                <p class="text-base md:text-lg">
-                    Pregledi, popravci, estetski tretmani i oralna hirurgija. Vaš osmijeh je naš prioritet.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                <h3 class="text-lg md:text-xl font-semibold mb-4">Dermatološke Usluge</h3>
-                <p class="text-base md:text-lg">
-                    Tretmani kože lica i tijela, dijagnostika i liječenje kožnih bolesti.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                <h3 class="text-lg md:text-xl font-semibold mb-4">Fizioterapija</h3>
-                <p class="text-base md:text-lg">
-                    Obuhvata rehabilitaciju nakon povreda i operacija, terapije i masaže.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                <h3 class="text-lg md:text-xl font-semibold mb-4">Dijagnostičke Pretrage</h3>
-                <p class="text-base md:text-lg">
-                    Precizne dijagnostičke pretrage kao što su MRI, CT skeniranje i rendgenski snimci, omogućavaju brzu i tačnu
-                    identifikaciju zdravstvenih problema. Obratite se našem timu za detaljnije informacije i tretman.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                <h3 class="text-lg md:text-xl font-semibold mb-4">Laboratorijske Analize</h3>
-                <p class="text-base md:text-lg">
-                    Naša laboratorija pruža sveobuhvatne analize krvi uz upotrebu najsavremenije tehnologije.
-                </p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                <h3 class="text-lg md:text-xl font-semibold mb-4">Kardiološki Pregledi</h3>
-                <p class="text-base md:text-lg">
-                    Naš tim stručnjaka nudi sveobuhvatne kardiološke preglede, uključujući EKG i ultrazvuk srca. 
-                    Brinemo se o zdravlju vašeg srca kako bismo osigurali najbolju njegu i podršku.
-                </p>
+            <div *ngFor="let service of services" class="p-6 bg-white shadow-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                <h3 class="text-lg md:text-xl font-semibold mb-4">{{ service.name }}</h3>
+                <p class="text-base md:text-lg">{{ service.description }}</p>
+                <p class="text-base md:text-lg font-semibold">Price: {{ service.price | currency }}</p>
             </div>
         </div>
     </div>
 </section>
+
 
 
 
