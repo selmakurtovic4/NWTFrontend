@@ -5,17 +5,18 @@ import { AppointmentResponse, UserResponse } from '../shared/appointment';
 import { AppointmentService } from '../shared/appointment.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
-  selector: 'app-appointment-popup',
+  selector: 'app-appointment-book',
   standalone: true,
   imports: [MatFormFieldModule, FormsModule, CommonModule],
-  templateUrl: './appointment-popup.component.html',
-  styleUrl: './appointment-popup.component.css'
+  templateUrl: './appointment-book.component.html',
+  styleUrl: './appointment-book.component.css'
 })
-export class AppointmentPopupComponent {
+export class AppointmentBookComponent {
   
-  constructor(private appointmentService: AppointmentService, private popupService: AppointmentService, private dialogRef: MatDialogRef<AppointmentPopupComponent>) {}
+  constructor(private appointmentService: AppointmentService, private popupService: AppointmentService) {}
 
 
   loading: boolean = true;
@@ -30,6 +31,7 @@ export class AppointmentPopupComponent {
   token: string | null = null;
   isPopupOpen: boolean = false;
   modalOpen: boolean = false;
+  successMessage: string | null = null;
 
 
   ngOnInit(): void {
@@ -120,7 +122,10 @@ export class AppointmentPopupComponent {
         )
         .subscribe(
           (data: AppointmentResponse) => {
-            // Uspješno rezervisan termin
+            this.successMessage = 'Uspješno ste zakazali pregled!';
+            setTimeout(() => {
+              this.successMessage = null;
+            }, 3000); // Skloniti poruku nakon 3 sekunde
           },
           (error) => {
             console.error('Error booking appointment:', error);
@@ -129,7 +134,4 @@ export class AppointmentPopupComponent {
     }
   }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
 }

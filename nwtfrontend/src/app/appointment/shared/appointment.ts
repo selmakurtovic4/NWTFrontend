@@ -6,7 +6,6 @@ export interface UserResponse {
     email: string;
     username: string;
     address: string;
-    mapCoordinates: string;
     phoneNumber: string;
     role: string
 }
@@ -14,7 +13,7 @@ export interface UserResponse {
 export interface AppointmentRequest {
     date: string;
     time: string;
-    status: string;
+    status: AppointmentStatus;
     doctorId: number;
     patientId: number;
 }
@@ -23,7 +22,13 @@ export interface AppointmentResponse {
     id: number;
     date: string;
     time: string;
-    status: string;
+    status: AppointmentStatus;
     doctorId: number;
     patientId: number;
 }
+
+export enum AppointmentStatus {
+    BOOKED = 'BOOKED',
+    CANCELLED = 'CANCELLED',
+    AVAILABLE = 'AVAILABLE'
+  }

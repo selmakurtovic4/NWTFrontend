@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { CommonModule, formatDate } from '@angular/common';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
-import { AppointmentResponse, UserResponse } from '../shared/appointment';
+import { AppointmentResponse, AppointmentStatus, UserResponse } from '../shared/appointment';
 import { AppointmentService } from '../shared/appointment.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AppointmentPopupComponent } from '../appointment-popup/appointment-popup.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { AppointmentBookComponent } from '../appointment-book/appointment-book.component';
 
 @Component({
   selector: 'app-appointment-patient',
@@ -29,6 +28,10 @@ export class AppointmentPatientComponent implements OnInit {
   token: string | null = null;
   isPopupOpen: boolean = false;
   modalOpen: boolean = false;
+
+  selectedAppointmentIdToDelete: number | null = null;
+
+  @ViewChild('cancelDialogTemplate') cancelDialogTemplate!: TemplateRef<any>; 
 
   constructor(private appointmentService: AppointmentService, private popupService: AppointmentService, private dialog: MatDialog) {}
 
@@ -129,15 +132,9 @@ export class AppointmentPatientComponent implements OnInit {
     }
   }
 
-  uopenPopup() {
-    this.dialog.open(AppointmentPopupComponent, {
-      width: '400px', 
-      autoFocus: false,
-    });
-  }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AppointmentPopupComponent, {
+    const dialogRef = this.dialog.open(AppointmentBookComponent, {
       width: '250px'
     });
 
@@ -146,4 +143,31 @@ export class AppointmentPatientComponent implements OnInit {
     });
   }
 
+  cancelAppointment(appointmentId: number): void {
+    if (this.token) {
+      this.appointmentService.changeAppointmentStatus(appointmentId, AppointmentStatus.CANCELLED, this.token).subscribe({
+        next: (updatedAppointment) => {
+          this.upcomingAppointments = this.upcomingAppointments.map(appointment =>
+            appointment.id === appointmentId ? updatedAppointment : appointment
+          );
+        },
+        error: (err) => {
+          console.error('Error cancelling appointment', err);
+        }
+      });
+    } else {
+      console.error('Token is null. Cannot cancel appointment.');
+    }
+  }
+
+  openCancelConfirmationDialog(appointmentId: number): void {
+    this.selectedAppointmentIdToDelete = appointmentId;
+    this.dialog.open(this.cancelDialogTemplate);
+  }
+  
+  closeCancelConfirmationDialog(): void {
+    this.selectedAppointmentIdToDelete = null;
+    this.checkSessionAndFetchAppointments();
+    this.dialog.closeAll();
+  }
 }

@@ -15,8 +15,12 @@
             <li>
                 <a href="#contact-us" class="nav-link">Kontakt</a>
             </li>
-            <li>
-                <a (click)="navigate('/schedule')" class="nav-link cursor-pointer">Raspored</a>
+            <li class="dropdown">
+                <span class="nav-link" (click)="toggleDropdown()">Raspored</span>
+                <div class="dropdown-menu" [ngClass]="{ 'show': isDropdownOpen }">
+                    <a class="dropdown-item" (click)="navigate('/schedule')">Termini</a>
+                    <a class="dropdown-item" (click)="navigate('/appointment-book')">Zakažite termin</a>
+                </div>
             </li>
             <li>
                 <a (click)="navigate('/staff-review')" class="nav-link cursor-pointer">Pregled osoblja</a>
@@ -28,7 +32,6 @@
     </div>
     <div class="flex gap-3 items-center ml-auto">
         <button (click)="navigate('/login')" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-colors">Prijava</button>
-        <div class="sm:hidden cursor-pointer" id="mobile-toggle">
-        </div>
+        <div class="sm:hidden cursor-pointer" id="mobile-toggle"></div>
     </div>
 </nav>

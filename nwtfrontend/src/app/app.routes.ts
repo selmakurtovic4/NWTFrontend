@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { MedicalRecordsComponent } from './medical-records/medical-records.component';
 import { AppointmentPatientComponent } from './appointment/appointment-patient/appointment-patient.component';
 import { StaffReviewComponent } from './staff-review/staff-review.component';
+import { AppointmentBookComponent } from './appointment/appointment-book/appointment-book.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'medical-records', component: MedicalRecordsComponent },
     { path: 'schedule', component: AppointmentPatientComponent },
-    { path: 'staff-review', component: StaffReviewComponent }
+    { path: 'staff-review', component: StaffReviewComponent },
+    { path: 'appointment-book', component: AppointmentBookComponent }
 ];

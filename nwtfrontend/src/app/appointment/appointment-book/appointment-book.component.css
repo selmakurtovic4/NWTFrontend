@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-margin-top: 4rem;
+  padding-bottom: 0;
+}
+
+.background {
+  background-image: url('/assets/images/background-image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+}
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  color: #4CAF50; 
+  padding: 15px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  background-color: white; 
+  animation: slideIn 0.5s ease-out forwards, slideOut 0.5s ease-in forwards 3s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
