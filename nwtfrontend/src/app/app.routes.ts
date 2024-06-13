@@ -7,6 +7,7 @@ import { AppointmentPatientComponent } from './appointment/appointment-patient/a
 import { StaffReviewComponent } from './staff-review/staff-review.component';
 import { MedicalRecordComponent } from './medical-record/medical-record.component';
 import { AppointmentBookComponent } from './appointment/appointment-book/appointment-book.component';
+import { AppointmentDoctorComponent } from './appointment/appointment-doctor/appointment-doctor.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'medical-record', component: MedicalRecordComponent },
     { path: 'schedule', component: AppointmentPatientComponent },
     { path: 'staff-review', component: StaffReviewComponent },
-    { path: 'appointment-book', component: AppointmentBookComponent }
+    { path: 'appointment-book', component: AppointmentBookComponent },
+    { path: 'appointment-doctor', component: AppointmentDoctorComponent }
 ];

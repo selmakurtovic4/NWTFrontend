@@ -35,6 +35,51 @@
   }
 }
 
+
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.divider {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin-bottom: 20px;
+}
+
+
+.appointments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.appointment {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-appointments {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-appointments p {
+  text-align: center;
+  color: #666;
+}
+
+
 .background {
   background-image: url('/assets/images/background-image.png');
   background-size: cover;

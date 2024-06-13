@@ -10,6 +10,7 @@
   background-image: url('/assets/images/background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   min-height: 100vh;
   display: flex;
 }

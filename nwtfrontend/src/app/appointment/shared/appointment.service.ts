@@ -52,5 +52,12 @@ export class AppointmentService {
     return this.http.put<AppointmentResponse>(`http://localhost:8000/appointment/appointment/${appointmentId}/status`, null, { headers, params });
   }
 
+  getTodayDoctorAppointments(doctorId: number, token: string): Observable<AppointmentResponse[]> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<AppointmentResponse[]>(`http://localhost:8000/appointment/appointment/todayDoctorAppointments/${doctorId}`, { headers });
+  }
+
     
 }

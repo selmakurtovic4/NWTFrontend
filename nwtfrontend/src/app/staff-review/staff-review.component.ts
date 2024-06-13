@@ -89,7 +89,7 @@ export class StaffReviewComponent implements OnInit {
       try {
         const user = await this.staffReviewService.getUserById(patientId, headers).toPromise();
         if (user) {
-          this.patientUsernames[patientId] = user.username;
+          this.patientUsernames[patientId] = user.firstname;
         } else {
           console.error(`User with id ${patientId} not found.`);
         }

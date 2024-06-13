@@ -21,8 +21,9 @@ export class LoginComponent {
     const loginData: AuthenticationCredentials = form.value;
     this.loginService.loginUser(loginData).subscribe(
       (response: AuthenticationResponse) => {
-        console.log('Login successful', response);+
+        console.log('Login successful', response);
         sessionStorage.setItem('currentUser', JSON.stringify(response));
+        this.loginService.notifyLoginStatusChange(); 
         this.router.navigate(['/']);
       },
       (error) => {
@@ -30,7 +31,6 @@ export class LoginComponent {
       }
     );
   }
-
   navigate(url: string) {
     this.router.navigate([url]);
   }
