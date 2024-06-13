@@ -1,0 +1,106 @@
+<div class="background content container mx-auto p-6">
+    <div class="item-padding bg-white shadow-md rounded-lg p-6">
+        <h1 class="text-3xl font-bold mb-8 text-center flex items-center justify-center space-x-2">
+            <img src="https://www.svgrepo.com/show/338102/medical-record-medical-hospital-pharmacy-healthcare.svg"
+                alt="Medical Record Icon" width="60px" class="img-class">
+            Moj karton
+        </h1>
+
+        <!-- Patient Information -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Osnovne informacije</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center mb-4">
+                    <p class="w-32 font-semibold">Ime:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">Elmedina</p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <p class="w-32 font-semibold">Prezime:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">Izmirlija</p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <p class="w-32 font-semibold">Alergije:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">Nema</p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <p class="w-32 font-semibold">Lijekovi:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">Nema</p>
+                </div>
+                <div class="flex items-center">
+                    <p class="w-32 font-semibold">Krvna grupa:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">A+</p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <p class="w-32 font-semibold">Porodična historija:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">Nema</p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <p class="w-32 font-semibold">Visina:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">170 cm</p>
+                </div>
+                <div class="flex items-center">
+                    <p class="w-32 font-semibold">Težina:</p>
+                    <p class="border-b border-gray-300 flex-grow ml-2">71 kg</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Reports as Expandable List -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Nalazi</h2>
+            <ul class="space-y-4">
+                <!-- Report 1 -->
+                <li *ngFor="let report of reports; let i = index">
+                    <button (click)="toggleReportDetails(i)"
+                        class="w-full bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 flex justify-between items-center transition-colors duration-300">
+                        <p class="font-semibold">Datum: {{ report.date }}</p>
+                        <svg *ngIf="reportExpanded[i]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" class="h-6 w-6">
+                            <path fill-rule="evenodd"
+                                d="M3.293 7.293a1 1 0 011.414 0L10 12.586l5.293-5.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div *ngIf="reportExpanded[i]" class="border-t border-gray-200 pt-4 mt-4">
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <p class="font-semibold mb-2">Dijagnoza: {{ report.diagnosis }}</p>
+                            <p><span class="font-semibold">Plan liječenja:</span> {{ report.treatmentPlan }}</p>
+                            <p><span class="font-semibold">Rezultati testova:</span> {{ report.testResults }}</p>
+                            <p><span class="font-semibold">Dodatne napomene:</span> {{ report.additionalNotes }}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Doctor Referrals as Expandable List -->
+        <div>
+            <h2 class="text-2xl font-semibold mb-4">Uputnice</h2>
+            <ul class="space-y-6">
+                <!-- Referral 1 -->
+                <li *ngFor="let referral of referrals; let i = index">
+                    <button (click)="toggleReferralDetails(i)"
+                        class="w-full bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 flex justify-between items-center transition-colors duration-300">
+                        <p class="font-semibold">Datum: {{ referral.date }}</p>
+                        <svg *ngIf="referralExpanded[i]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" class="h-6 w-6">
+                            <path fill-rule="evenodd"
+                                d="M3.293 7.293a1 1 0 011.414 0L10 12.586l5.293-5.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div *ngIf="referralExpanded[i]" class="border-t border-gray-200 pt-4 mt-4">
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <p class="font-semibold mb-2">Razlog: {{ referral.reason }}</p>
+                            <p><span class="font-semibold">Prioritet:</span> {{ referral.priority }}</p>
+                            <p><span class="font-semibold">Upućuje doktor:</span> {{ referral.referringDoctor }}</p>
+                            <p><span class="font-semibold">Preporučeni doktor:</span> {{ referral.referredDoctor }}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
